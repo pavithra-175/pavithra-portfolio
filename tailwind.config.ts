@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#050505",
-        surface: "#0E0E0E",
-        border: "rgba(255,255,255,.08)",
+        canvas: "var(--canvas)",
+        surface: "var(--surface)",
+        border: "var(--border)",
         accent: {
-          violet: "#7C3AED",
-          sky: "#38BDF8",
+          violet: "var(--accent-violet)",
+          sky: "var(--accent-sky)",
         },
-        muted: "#8A8A8E",
+        muted: "var(--text-muted)",
       },
       fontFamily: {
         display: ["var(--font-jakarta)", "sans-serif"],

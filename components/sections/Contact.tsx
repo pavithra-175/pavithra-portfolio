@@ -15,9 +15,9 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-28 md:py-40">
+    <section id="contact" className="relative py-16 md:py-20 lg:py-24">
       <GridBackground />
-      <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
+      <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 text-center md:px-10 xl:px-0">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function Contact() {
           transition={{ delay: 0.1 }}
           className="mx-auto mt-4 max-w-md text-muted"
         >
-          Open to UI design roles, internships, and freelance collaborations.
+          Open to UI/UX design roles, data analytics opportunities, and collaborations.
         </motion.p>
 
         <motion.div
@@ -50,7 +50,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="mt-10 flex justify-center"
+          className="mt-8 sm:mt-10 flex justify-center"
         >
           <MagneticButton href={`mailto:${profile.email}`} variant="primary">
             Say Hello
@@ -58,7 +58,7 @@ export default function Contact() {
           </MagneticButton>
         </motion.div>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {links.map((link, i) => (
             <motion.a
               key={link.label}
@@ -78,7 +78,7 @@ export default function Contact() {
                 <span className="block text-xs uppercase tracking-wider text-muted">
                   {link.label}
                 </span>
-                <span className="block text-sm text-white/90">
+                <span className="block text-sm font-medium text-[color:var(--text-primary)]">
                   {link.value}
                 </span>
               </span>

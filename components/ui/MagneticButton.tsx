@@ -9,6 +9,8 @@ interface MagneticButtonProps {
   onClick?: () => void;
   variant?: "primary" | "ghost";
   className?: string;
+  target?: string;
+  rel?: string;
 }
 
 export default function MagneticButton({
@@ -17,6 +19,8 @@ export default function MagneticButton({
   onClick,
   variant = "primary",
   className = "",
+  target,
+  rel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -36,8 +40,8 @@ export default function MagneticButton({
     "focus-ring relative inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium tracking-wide transition-colors duration-300";
   const styles =
     variant === "primary"
-      ? "bg-white text-black hover:bg-accent-sky hover:text-black"
-      : "border border-border text-white hover:border-accent-violet/60";
+      ? "bg-accent-violet text-white shadow-[0_14px_40px_rgba(124,58,237,0.24)] hover:bg-accent-sky hover:text-slate-950"
+      : "border border-border bg-[color:var(--surface)] text-[color:var(--text-primary)] hover:border-accent-violet/60 hover:bg-[color:var(--surface-strong)]";
 
   const content = (
     <motion.span
@@ -54,6 +58,8 @@ export default function MagneticButton({
       <a
         ref={ref as React.RefObject<HTMLAnchorElement>}
         href={href}
+        target={target}
+        rel={rel}
         onMouseMove={handleMove}
         onMouseLeave={reset}
         className={`${base} ${styles} ${className}`}

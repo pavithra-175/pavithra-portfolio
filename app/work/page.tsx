@@ -105,7 +105,7 @@ export default function WorkPage() {
 
         <div className="mt-8 flex justify-center">
           <a
-            href="https://www.behance.net/gallery/250595551/Event-Poster-Design-Series"
+            href="https://www.behance.net/pavithra-ss"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-border/70 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-accent-sky/60 hover:text-accent-sky"

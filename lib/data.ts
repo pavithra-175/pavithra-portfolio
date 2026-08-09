@@ -7,28 +7,30 @@ import {
 
 export const profile = {
   name: "Pavithra S S",
-  title: "UI Designer",
+  title: "UI/UX Designer",
   secondaryTitle: "Aspiring Data Analyst",
   subtitle: "B.Tech Information Technology Graduate · Community Educator",
   summary:
-    "B.Tech Information Technology graduate with hands-on experience in UI design, creating intuitive and user-centered digital experiences for web and mobile applications. Skilled in Figma, wireframing, high-fidelity prototyping, responsive design, accessibility, and user-centered design principles.",
+    "Designing intuitive digital experiences and transforming data into meaningful insights through user-centered design and analytics.",
+  aboutBio:
+    "B.Tech Information Technology graduate with hands-on experience in UI design, creating intuitive and user-centered digital experiences for web and mobile applications. Skilled in Figma, wireframing, high-fidelity prototyping, responsive design, accessibility, and user-centered design principles. Building working knowledge of SQL, Excel, and Power BI to support data-driven decision making. Experienced in collaborating with cross-functional teams to deliver visually engaging, usable interfaces.",
   location: "Trivandrum, Kerala",
   email: "pavithrass175@gmail.com",
   phone: "+91 72935 99719",
   linkedin: "https://linkedin.com/in/pavithra-s-s",
   github: "https://github.com/pavithra-175",
+  resumeUrl: "/images/Resume_pavithrass.docx.pdf",
 };
 
 export const skillGroups: SkillGroup[] = [
   {
     id: "ui-design",
     label: "UI Design",
-    items: ["Figma", "High-Fidelity Prototyping", "Mockup"],
-  },
-  {
-    id: "design-process",
-    label: "Design Process",
     items: [
+      "Figma",
+      "High-Fidelity Prototyping",
+      "Mockup",
+      "Design Process",
       "Wireframing",
       "Responsive Design",
       "Accessibility",
@@ -38,7 +40,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "data-tools",
     label: "Data & Tools",
-    items: ["MS Excel"],
+    items: ["MS Excel", "Power BI", "SQL"],
   },
   {
     id: "soft-skills",

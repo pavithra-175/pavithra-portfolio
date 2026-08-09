@@ -23,7 +23,7 @@ const siteUrl = "https://pavithra-ss.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${profile.name} — ${profile.title}`,
+  title: profile.name,
   description: profile.summary,
   keywords: [
     "Pavithra S S",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: profile.name }],
   openGraph: {
-    title: `${profile.name} — ${profile.title}`,
+    title: profile.name,
     description: profile.summary,
     url: siteUrl,
     siteName: profile.name,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.title}`,
+    title: profile.name,
     description: profile.summary,
   },
   robots: {
@@ -52,14 +52,32 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+  (function () {
+    try {
+      const stored = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored === 'light' || stored === 'dark' ? stored : (systemDark ? 'dark' : 'light');
+      document.documentElement.classList.toggle('light', theme === 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      document.documentElement.style.colorScheme = theme;
+    } catch (e) {
+      void e;
+    }
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable} dark`}>
-      <body className="font-body bg-canvas text-white antialiased selection:bg-accent-violet">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${jakarta.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="font-body bg-canvas text-[color:var(--text-primary)] antialiased transition-colors duration-300 selection:bg-accent-violet">
         <ScrollProgress />
         <CursorGlow />
         {children}
