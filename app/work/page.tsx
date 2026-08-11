@@ -122,7 +122,7 @@ export default function WorkPage() {
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors"
+            className="absolute top-4 right-4 md:top-6 md:right-6 z-[60] p-2 text-white/80 hover:text-white transition-colors bg-black/20 rounded-full backdrop-blur-md"
             onClick={() => setSelectedImage(null)}
             aria-label="Close"
           >
