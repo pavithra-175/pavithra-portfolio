@@ -16,7 +16,7 @@ export const profile = {
     "B.Tech Information Technology graduate with hands-on experience in UI design, creating intuitive and user-centered digital experiences for web and mobile applications. Skilled in Figma, wireframing, high-fidelity prototyping, responsive design, accessibility, and user-centered design principles. Building working knowledge of SQL, Excel, and Power BI to support data-driven decision making. Experienced in collaborating with cross-functional teams to deliver visually engaging, usable interfaces.",
   location: "Trivandrum, Kerala",
   email: "pavithrass175@gmail.com",
-  phone: "+91 72935 99719",
+  behance: "https://www.behance.net/pavithra-ss",
   linkedin: "https://linkedin.com/in/pavithra-s-s",
   github: "https://github.com/pavithra-175",
   resumeUrl: "/images/Resume_pavithrass.docx.pdf",

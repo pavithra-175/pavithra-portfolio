@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { Mail, Palette, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { profile } from "@/lib/data";
 import MagneticButton from "@/components/ui/MagneticButton";
 import GridBackground from "@/components/ui/GridBackground";
 
 const links = [
   { label: "Email", value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
-  { label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}`, icon: Phone },
+  { label: "Behance", value: "behance.net/pavithra-ss", href: profile.behance, icon: Palette },
   { label: "LinkedIn", value: "pavithra-s-s", href: profile.linkedin, icon: Linkedin },
   { label: "GitHub", value: "pavithra-175", href: profile.github, icon: Github },
 ];
