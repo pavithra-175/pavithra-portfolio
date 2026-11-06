@@ -2,21 +2,26 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { navLinks } from "@/lib/data";
 import { useActiveSection } from "@/hooks/useActiveSection";
+
+type Theme = "light" | "dark";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [theme, setTheme] = useState<Theme>("dark");
   const active = useActiveSection(navLinks.map((l) => l.id));
 
   useEffect(() => {
+    setTheme(document.documentElement.classList.contains("light") ? "light" : "dark");
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       setScrolled(currentScrollY > 24);
 
       if (!mobileMenuOpen) {
@@ -26,19 +31,25 @@ export default function Navbar() {
           setHidden(false);
         }
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    document.documentElement.classList.remove("light");
-    document.documentElement.classList.add("dark");
-    document.documentElement.style.colorScheme = "dark";
-    window.localStorage.setItem("theme", "dark");
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, mobileMenuOpen]);
+
+  const toggleTheme = () => {
+    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
+    const root = document.documentElement;
+
+    root.classList.toggle("light", nextTheme === "light");
+    root.classList.toggle("dark", nextTheme === "dark");
+    root.style.colorScheme = nextTheme;
+    window.localStorage.setItem("theme", nextTheme);
+    setTheme(nextTheme);
+  };
 
   const handleClick = (id: string) => {
     setMobileMenuOpen(false);
@@ -53,7 +64,7 @@ export default function Navbar() {
     >
       <nav
         aria-label="Primary"
-        className={`relative flex items-center justify-center rounded-full bg-canvas/70 px-3 py-2 sm:px-8 sm:py-3 backdrop-blur-xl shadow-lg transition-all duration-300 ${
+        className={`relative flex items-center justify-center gap-2 rounded-full bg-canvas/70 px-3 py-2 backdrop-blur-xl shadow-lg transition-all duration-300 sm:gap-4 sm:px-8 sm:py-3 ${
           scrolled ? "bg-canvas/90 shadow-md" : ""
         }`}
       >
@@ -63,7 +74,7 @@ export default function Navbar() {
             <li key={link.id} className="relative">
               <button
                 onClick={() => handleClick(link.id)}
-                className={`focus-ring text-[11px] sm:text-sm font-medium transition-colors ${
+                className={`focus-ring text-[11px] font-medium transition-colors sm:text-sm ${
                   active === link.id
                     ? "text-white"
                     : "text-muted hover:text-white"
@@ -81,12 +92,23 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="flex sm:hidden items-center justify-center">
+        <div className="flex items-center gap-1">
           <button
-            aria-label="Toggle menu"
+            type="button"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+            aria-pressed={theme === "light"}
+            onClick={toggleTheme}
+            className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--text-primary)] transition-colors hover:bg-accent-violet/10"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors"
+            className="focus-ring flex h-10 w-10 items-center justify-center rounded-full text-[color:var(--text-primary)] transition-colors hover:bg-accent-violet/10 sm:hidden"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -110,8 +132,8 @@ export default function Navbar() {
                     onClick={() => handleClick(link.id)}
                     className={`w-full rounded-xl px-4 py-3 text-center text-sm font-medium transition-colors ${
                       active === link.id
-                        ? "bg-white/10 text-white"
-                        : "text-muted hover:bg-white/5 hover:text-white"
+                        ? "bg-accent-violet/10 text-accent-violet"
+                        : "text-muted hover:bg-accent-violet/5 hover:text-accent-sky"
                     }`}
                   >
                     {link.label}

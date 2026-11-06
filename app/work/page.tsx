@@ -53,7 +53,7 @@ export default function WorkPage() {
 
         <div className="grid gap-8 md:grid-cols-3">
           {projects.map((project) => (
-            <article key={project.id} className="overflow-hidden rounded-3xl border border-border/70 bg-white/[0.02]">
+            <article key={project.id} className="overflow-hidden rounded-3xl border border-border/70 bg-surface">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image src={project.image ?? "/images/donation.png"} alt={project.title} fill className="object-cover object-top" />
               </div>

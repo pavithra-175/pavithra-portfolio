@@ -29,7 +29,7 @@ export default function Skills() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: gi * 0.12 + si * 0.05 }}
-                    className="rounded-full border border-border bg-white/[0.02] px-3.5 py-1.5 text-xs text-white/80"
+                    className="rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs text-white/80"
                   >
                     {skill}
                   </motion.span>

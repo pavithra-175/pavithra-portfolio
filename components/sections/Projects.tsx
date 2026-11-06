@@ -22,7 +22,7 @@ export default function Projects() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-3xl p-0 border border-border/70 bg-white/[0.02] transition-colors hover:border-accent-sky/40"
+              className="group relative overflow-hidden rounded-3xl border border-border/70 bg-surface p-0 transition-colors hover:border-accent-sky/40"
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
@@ -46,7 +46,7 @@ export default function Projects() {
                   {project.tags?.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-border/70 bg-white/[0.02] px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] text-white/70"
+                      className="rounded-full border border-border/70 bg-surface px-2.5 py-1 text-[11px] uppercase tracking-[0.2em] text-white/70"
                     >
                       {tag}
                     </span>

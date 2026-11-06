@@ -64,7 +64,7 @@ export default function About() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-2 rounded-full border border-border/70 px-5 py-2.5 text-sm text-white/90 transition-colors hover:border-accent-sky/60 hover:text-accent-sky"
+                className="resume-download inline-flex w-fit items-center gap-2 rounded-full border border-border/70 px-5 py-2.5 text-sm text-white/90 transition-colors hover:border-accent-sky/60 hover:text-accent-sky"
               >
                 <Download size={15} className="text-accent-sky" />
                 Download Resume

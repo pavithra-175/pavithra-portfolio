@@ -12,20 +12,24 @@
   --text-muted: #8a8a8e;
   --accent-violet: #7c3aed;
   --accent-sky: #38bdf8;
-  --grid-line: rgba(15, 23, 42, 0.06);
   --grid-line: rgba(255, 255, 255, 0.045);
   --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.25);
+  --button-shadow: rgba(124, 58, 237, 0.24);
 }
 
 html.light {
   color-scheme: light;
-  --canvas: #f7f7f8;
-  --surface: #ffffff;
-  --surface-strong: #f3f4f6;
-  --border: rgba(15, 23, 42, 0.08);
-  --text-primary: #111827;
-  --text-muted: #5f6470;
-  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --canvas: #ffffff;
+  --surface: #e8c999;
+  --surface-strong: #f2dfc0;
+  --border: rgba(142, 22, 22, 0.18);
+  --text-primary: #000000;
+  --text-muted: rgba(0, 0, 0, 0.65);
+  --accent-violet: #8e1616;
+  --accent-sky: #a63a3a;
+  --grid-line: rgba(142, 22, 22, 0.08);
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.08);
+  --button-shadow: rgba(142, 22, 22, 0.24);
 }
 
 * {
@@ -83,7 +87,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
+  background: color-mix(in srgb, var(--text-primary) 14%, transparent);
   border-radius: 999px;
 }
 
@@ -132,9 +136,9 @@ h6 {
   padding: 1px;
   border-radius: inherit;
   background: linear-gradient(135deg,
-      rgba(124, 58, 237, 0.5),
+      color-mix(in srgb, var(--accent-violet) 50%, transparent),
       rgba(255, 255, 255, 0.05) 40%,
-      rgba(56, 189, 248, 0.4));
+      color-mix(in srgb, var(--accent-sky) 40%, transparent));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -160,6 +164,39 @@ h6 {
 
 .text-muted {
   color: var(--text-muted) !important;
+}
+
+html.light [class~="text-white/90"] {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
+html.light [class~="text-white/80"] {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+html.light [class~="text-white/70"] {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+html.light [class~="text-white/50"] {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+html.light [class~="text-white/45"] {
+  color: rgba(0, 0, 0, 0.45) !important;
+}
+
+html.light .theme-primary-button {
+  background: linear-gradient(90deg, var(--accent-violet), var(--accent-sky));
+  color: #fff !important;
+}
+
+html.light .theme-primary-button:hover {
+  background: linear-gradient(90deg, var(--accent-sky), var(--accent-violet));
+}
+
+.resume-download {
+  border-color: #e8c999;
 }
 
 @media (prefers-reduced-motion: reduce) {
